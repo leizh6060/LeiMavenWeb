@@ -19,8 +19,21 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean package
-    - name: Upload Downloadable Package
+    - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: compiled-maven-package # The aaname of the downloadable zip file
-        path: target/*.jar  
+        name: lei-maven-web-jar
+        path: target/*.jar
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: lei-maven-web-jar
+        path: deployment-package
+    - name: Verify Artifact
+      run: ls -R deployment-package
