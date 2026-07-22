@@ -8,10 +8,10 @@ terraform {
     }
   }
 
-  backend "azurerm" {
+  # backend "azurerm" {
     # Values supplied via -backend-config in the workflow,
     # or hardcode them here if you prefer.
-  }
+  #}
 }
 
 provider "azurerm" {
