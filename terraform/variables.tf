@@ -1,16 +1,14 @@
 variable "resource_group_name" {
-  type        = string
-  description = "Name of the resource group"
-  default     = "rg-example-dev"
+  type    = string
+  default = "leimvnweb-rg"
 }
 
 variable "location" {
-  type        = string
-  description = "Azure region"
-  default     = "eastus"
+  type    = string
+  default = "eastus"
 }
 
-variable "environment" {
-  type        = string
-  default     = "dev"
+variable "acr_name" {
+  type    = string
+  default = "leimvnweacr"
 }
